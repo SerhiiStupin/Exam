@@ -2,7 +2,6 @@
 *.class
 *.iml
 .allure
-*.xml
 *.idea
 
 # Log file
