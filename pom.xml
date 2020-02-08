@@ -61,7 +61,7 @@
     </dependencies>
     <properties>
         <aspectj.version>1.9.4</aspectj.version>
-        <suite>testng_api</suite>
+        <suite>testng</suite>
     </properties>
 
     <build>
