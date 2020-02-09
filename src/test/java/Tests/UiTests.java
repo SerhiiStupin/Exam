@@ -57,6 +57,7 @@ public class UiTests extends Preconditions{
         assertThat(cartPage.total()).isEqualTo("$7.99");
     }
     @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
     @Story("Checkout process generation")
     @TmsLink("basket.html")
     @Issue("Bug-4")
@@ -81,6 +82,7 @@ public class UiTests extends Preconditions{
         assertThat(ordersPage.statusCheck()).isEqualTo("Shipped");
     }
     @Test(priority = 5)
+    @Severity(SeverityLevel.NORMAL)
     @Story("Sign out")
     @TmsLink("basket.html")
     @Issue("Bug-5")
