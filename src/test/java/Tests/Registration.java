@@ -33,7 +33,6 @@ public class Registration extends Preconditions{
                 .statusCode(200)
                 .extract().body()
                 .as(User.class);
-        System.out.println(user.getUsername());
     }
 
 }
