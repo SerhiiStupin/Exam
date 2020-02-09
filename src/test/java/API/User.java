@@ -27,14 +27,6 @@ public class User {
         return firstName;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     @JsonProperty("firstName")
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -80,17 +72,27 @@ public class User {
         this.email = email;
     }
 
-//    @Override
-//    public String toString() {
-//        return "User{" +
-//                "firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", username='" + username + '\'' +
-//                ", password='" + password + '\'' +
-//                ", email='" + email + '\'' +
-//                ", id=" + id +
-//                '}';
-//    }
+    @JsonProperty("id")
+    public String getId() {
+        return id;
+    }
+
+    @JsonProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", id=" + id +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -98,16 +100,16 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return
-                //id == user.id &&
                 Objects.equals(firstName, user.firstName) &&
                 Objects.equals(lastName, user.lastName) &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(password, user.password) &&
-                Objects.equals(email, user.email);
+                Objects.equals(email, user.email) &&
+                Objects.equals(id, user.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, username, password, email);
+        return Objects.hash(firstName, lastName, username, password, email, id);
     }
 }

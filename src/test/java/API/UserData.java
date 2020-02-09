@@ -1,4 +1,4 @@
-package UI;
+package API;
 
 public class UserData {
     private String HouseNumber;

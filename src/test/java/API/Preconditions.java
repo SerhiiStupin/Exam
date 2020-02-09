@@ -1,27 +1,33 @@
 package API;
 
+import com.codeborne.selenide.Configuration;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.parsing.Parser;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class Preconditions {
-    User user = new User();
+public class Preconditions{
     Random random = new Random();
+    int name = random.nextInt();
+    static {
+        //Configuration.baseUrl = "http://167.172.110.35";
+        Configuration.baseUrl = "http://localhost";
+    }
     @BeforeClass
     public void setUp() {
-        RestAssured.baseURI = "http://167.172.110.35";
+        RestAssured.baseURI = "http://localhost";
+        //RestAssured.baseURI = "http://167.172.110.35";
         RestAssured.port = 80;
         RestAssured.defaultParser = Parser.JSON;
     }
-    public void userCreation() {
-        user.setUsername("Test"+random);
+    public User userCreation() {
+        User user = new User();
+        user.setUsername("Test" + name);
         user.setEmail(user.getUsername() + "@mail.com");
-        user.setPassword("1234567");
-        user = RestAssured.given()
+        user.setPassword("123456");
+        return RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(user)
                 .post("/register")
@@ -30,20 +36,4 @@ public class Preconditions {
                 .extract().body()
                 .as(User.class);
     }
-//    @Test
-//    public void addOwnerAndPets() {
-//        user.setUsername("Sponge"+ random);
-//        user.setFirstName("Sponge");
-//        user.setLastName("Bob");
-//        user.setEmail("spongebob@meil.com");
-//        user.setPassword("123456");
-//        user = RestAssured.given()
-//                .contentType(ContentType.JSON)
-//                .body(user)
-//                .post("/register")
-//                .then()
-//                .statusCode(200)
-//                .extract().body()
-//                .as(User.class);
-//    }
 }
