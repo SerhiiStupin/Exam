@@ -12,13 +12,11 @@ public class Preconditions{
     Random random = new Random();
     int name = random.nextInt();
     static {
-        //Configuration.baseUrl = "http://167.172.110.35";
-        Configuration.baseUrl = "http://localhost";
+        Configuration.baseUrl = "http://167.172.110.35";
     }
     @BeforeClass
     public void setUp() {
-        RestAssured.baseURI = "http://localhost";
-        //RestAssured.baseURI = "http://167.172.110.35";
+        RestAssured.baseURI = "http://167.172.110.35";
         RestAssured.port = 80;
         RestAssured.defaultParser = Parser.JSON;
     }

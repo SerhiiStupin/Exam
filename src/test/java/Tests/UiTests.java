@@ -22,7 +22,7 @@ public class UiTests extends Preconditions{
     @Story("Sign in process")
     @TmsLink("index.html")
     @Issue("Bug-1")
-    public void loginTest() throws InterruptedException {
+    public void loginTest() {
         LoginPage loginPage = new LoginPage();
         loginPage.openPage();
         loginPage.loginBtnClick();

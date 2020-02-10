@@ -39,8 +39,5 @@ public class LoginPage extends Preconditions {
     public String loggedIn(){
         return $(By.xpath("//*[text()='Logged in as  ']")).getText();
     }
-//    public String logoutBtn(){
-//        $(By.xpath("//*[@onclick=\"logout()\"]")).getText();
-//        re
-//    }
+
 }
